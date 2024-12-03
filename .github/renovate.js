@@ -1,8 +1,8 @@
 module.exports = {
     platform: "github",
-    endpoint: 'https://github.com/philwelz',
+    //endpoint: 'https://github.com/philwelz',
     //token: process.env.RENOVATE_TOKEN,
-    username: 'renovate-bot',
+    //username: 'renovate-bot',
     automergeType: "pr",
     platformAutomerge: true,
     gitLabIgnoreApprovals: true,
@@ -33,10 +33,10 @@ module.exports = {
       // automatically pin action digests
       "helpers:pinGitHubActionDigests",
     ],
-    autodiscover: true,
-    autodiscoverFilter: [
-      "dependabot-renovate",
-    ],
+    //autodiscover: true,
+    // autodiscoverFilter: [
+    //   "dependabot-renovate",
+    // ],
     packageRules: [
       {
         description: "Label major",
