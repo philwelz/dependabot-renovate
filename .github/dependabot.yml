@@ -19,7 +19,3 @@ updates:
     # Add reviewers
     reviewers:
       - "philwelz"
-    # Specify labels for npm pull requests
-    labels:
-      - "terraform"
-      - "dependencies"
