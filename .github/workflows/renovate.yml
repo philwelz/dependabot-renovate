@@ -17,7 +17,7 @@ jobs:
         env:
           # Renovate token for authentication
           # https://docs.renovatebot.com/modules/platform/github/#running-using-a-fine-grained-token
-          token: ${{ secrets.RENOVATE_TOKEN }}
+          RENOVATE_TOKEN: ${{ secrets.RENOVATE_TOKEN }}
           # Github read-only PAT for Releases
           GITHUB_COM_TOKEN: ${{ secrets.PAT_GITHUB_RELEASES_RENOVATE}}
           # Repository taken from variable to keep configuration file generic
