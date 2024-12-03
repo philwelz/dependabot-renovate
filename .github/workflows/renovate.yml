@@ -1,0 +1,36 @@
+name: Renovate
+on:
+  # Allows manual/automated ad-hoc trigger
+  workflow_dispatch:
+  # Run twice in the early morning for initial and follow up steps (create pull request and merge)
+  schedule:
+    - cron: '0 4,5 * * Sat'
+concurrency: renovate
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.5
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v41.0.0
+        env:
+          # Renovate token for authentication
+          # https://docs.renovatebot.com/modules/platform/github/#running-using-a-fine-grained-token
+          token: ${{ secrets.RENOVATE_TOKEN }}
+          # Github read-only PAT for Releases
+          GITHUB_COM_TOKEN: ${{ secrets.PAT_GITHUB_RELEASES_RENOVATE}}
+          # Repository taken from variable to keep configuration file generic
+          RENOVATE_REPOSITORIES: ${{ github.repository }}
+          # Onboarding not needed for self hosted
+          RENOVATE_ONBOARDING: "false"
+          # Username for GitHub authentication (should match GitHub App name + [bot])
+          RENOVATE_USERNAME: "superseb-demo-renovate[bot]"
+          # Git commit author used, must match GitHub App
+          RENOVATE_GIT_AUTHOR: "superseb-demo-renovate <121964725+superseb-demo-renovate[bot]@users.noreply.github.com>"
+          # Use GitHub API to create commits (this allows for signed commits from GitHub App)
+          RENOVATE_PLATFORM_COMMIT: "false"
+          # Log level for Renovate
+          LOG_LEVEL: ${{ inputs.logLevel || 'debug' }}
+        with:
+          configurationFile: .github/renovate.js
