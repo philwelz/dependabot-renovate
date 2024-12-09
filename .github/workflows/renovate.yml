@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.1.5
       - name: Self-hosted Renovate
-        uses: renovatebot/github-action@v41.0.0
+        uses: renovatebot/github-action@v41.0.6
         env:
           # Github read-only PAT for Releases
           GITHUB_COM_TOKEN: ${{ secrets.PAT_GITHUB_RELEASES_RENOVATE}}
