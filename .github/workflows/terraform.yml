@@ -30,4 +30,4 @@ jobs:
         uses: hashicorp/setup-terraform@v3.0.0
         with:
           # renovate: datasource=github-releases depName=hashicorp/terraform versioning=hashicorp
-          terraform_version: 1.9.5
+          terraform_version: 1.10.5
